@@ -1,0 +1,12 @@
+.classpath
+.project
+.settings/
+build
+clean
+/eclipse-bin/
+*.iml
+*.swp
+.DS_Store
+target
+.idea
+var
