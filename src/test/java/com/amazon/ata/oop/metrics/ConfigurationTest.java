@@ -1,11 +1,10 @@
 package com.amazon.ata.oop.metrics;
 
-import com.amazon.ata.oop.metrics.reporting.ExampleMetricsReporter;
-import com.amazon.ata.oop.metrics.reporting.ExampleMetricsReporterFactory;
 import com.amazon.ata.oop.metrics.reporting.MetricsFactory;
 import com.amazon.ata.oop.metrics.reporting.MetricsFactoryImpl;
 import com.amazon.ata.oop.metrics.reporting.MetricsReporter;
 import com.amazon.ata.oop.metrics.reporting.MetricsReporterFactory;
+import com.amazon.ata.oop.metrics.reporting.MetricsReporterFactoryImpl;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -23,13 +22,13 @@ public class ConfigurationTest {
     @Test
     public void getMetricsReporterFactoryTest() {
         MetricsReporterFactory metricsReporterFactory = configuration.getMetricsReporterFactory();
-        assertTrue(metricsReporterFactory instanceof ExampleMetricsReporterFactory);
+        assertTrue(metricsReporterFactory instanceof MetricsReporterFactoryImpl);
     }
 
     @Test
     public void getMetricsReporterTest() {
         MetricsReporter metricsReporter = configuration.getMetricsReporter();
-        assertTrue(metricsReporter instanceof ExampleMetricsReporter);
+        assertTrue(metricsReporter instanceof MetricsReporterFactoryImpl);
     }
 
 }
