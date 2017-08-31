@@ -19,7 +19,7 @@ import java.util.Random;
  */
 public class Configuration {
 
-    private final int maxIterations = 100;
+    private final int maxIterations = 10;
     private final int minStringLength = 5;
     private final int maxStringLength = 50;
     private final MetricsReporter metricsReporter;
