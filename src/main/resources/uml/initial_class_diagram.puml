@@ -1,0 +1,34 @@
+@startuml
+
+interface Metrics
+interface MetricsFactory
+
+interface MetricsReporter {
+    void accept(Metrics)
+    generateReport()
+}
+
+class MetricsImpl
+class MetricsFactoryImpl
+class MetricsReporterImpl
+class MetricsReporterFactoryImpl
+
+interface MetricsReporterFactory
+
+MetricsReporterFactory --> MetricsReporter : creates
+
+MetricsFactory --> Metrics : creates
+
+Metrics <|-- MetricsImpl : implements
+MetricsFactory <|-- MetricsFactoryImpl : implements
+MetricsReporter <|-- MetricsReporterImpl : implements 
+MetricsReporterFactory <|-- MetricsReporterFactoryImpl : implements
+
+MetricsFactoryImpl --> MetricsImpl : creates
+MetricsFactoryImpl --> MetricsReporter : has reference
+MetricsReporterFactoryImpl --> MetricsReporterImpl : creates
+
+MetricsImpl --> MetricsReporter : uses
+
+
+@enduml

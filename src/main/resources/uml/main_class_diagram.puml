@@ -1,0 +1,30 @@
+@startuml
+
+class Simulator
+class Configuration
+
+class RandomStringService
+class RandomStringServiceClient
+
+interface Metrics
+interface MetricsFactory
+interface MetricsReporter 
+interface MetricsReporterFactory
+
+MetricsFactory --> Metrics
+
+Simulator --> Configuration
+Simulator --> RandomStringServiceClient
+Simulator --> MetricsReporter
+Simulator --> MetricsFactory
+Simulator --> Metrics
+
+Configuration --> RandomStringServiceClient
+Configuration --> RandomStringService
+Configuration --> MetricsReporterFactory
+Configuration --> MetricsFactory
+Configuration --> MetricsReporter
+
+RandomStringServiceClient --> RandomStringService
+
+@enduml

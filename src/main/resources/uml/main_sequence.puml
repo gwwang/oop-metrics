@@ -1,0 +1,21 @@
+@startuml
+autonumber
+
+Simulator -> Configuration : get MetricsFactory, MetricsReporter, and RandomStringServiceClient
+Configuration --> Simulator : instances of MetricsFactory, MetricsReporter, and RandomStringServiceClient
+
+loop Configuration.getMaxIteration times
+    Simulator -> MetricsFactory : newMetrics()
+    MetricsFactory --> Simulator : Metrics
+
+    Simulator --> Metrics : set name and start
+
+    Simulator -> RandomStringServiceClient : getRandomAlphaString()
+    RandomStringServiceClient --> Simulator : GetRandomAlphaStringResponse 
+
+    Simulator --> Metrics : set end, length, then close
+end
+
+Simulator -> MetricsReporter : generateReport()
+
+@enduml
